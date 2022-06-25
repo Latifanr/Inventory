@@ -18,20 +18,24 @@
 			<thead>
 				<tr>
 					<td>No</td>
-					<td>Kode</td>
-					<td>Nama</td>
-					<td>Username</td>
+					<td>Kode Supplier</td>
+					<td>Nama Supplier</td>
+					<td>Telepon</td>
+					<td>Email</td>
+					<td>Alamat</td>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($all_pengguna as $pengguna): ?>
-					<tr>
-						<td><?= $no++ ?></td>
-						<td><?= $pengguna->kode ?></td>
-						<td><?= $pengguna->nama ?></td>
-						<td><?= $pengguna->username ?></td>
-					</tr>
-				<?php endforeach ?>
+			<?php foreach ($all_supplier as $supplier): ?>
+				<tr>
+					<td><?= $no++ ?></td>
+					<td><?= $supplier->kode ?></td>
+					<td><?= $supplier->nama ?></td>
+					<td><?= $supplier->telepon ?></td>
+					<td><?= $supplier->email ?></td>
+					<td><?= $supplier->alamat ?></td>
+				</tr>	
+			<?php endforeach ?>
 			</tbody>
 		</table>
 	</div>
