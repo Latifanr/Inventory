@@ -24,12 +24,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($all_petugas as $petugas): ?>
+				<?php foreach ($all_pengguna as $pengguna): ?>
 					<tr>
 						<td><?= $no++ ?></td>
-						<td><?= $petugas->kode ?></td>
-						<td><?= $petugas->nama ?></td>
-						<td><?= $petugas->username ?></td>
+						<td><?= $pengguna->kode ?></td>
+						<td><?= $pengguna->nama ?></td>
+						<td><?= $pengguna->username ?></td>
 					</tr>
 				<?php endforeach ?>
 			</tbody>

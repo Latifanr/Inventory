@@ -10,7 +10,7 @@
 		<?php $this->load->view('partials/sidebar.php') ?>
 
 		<div id="content-wrapper" class="d-flex flex-column">
-			<div id="content" data-url="<?= base_url('petugas') ?>">
+			<div id="content" data-url="<?= base_url('pengguna') ?>">
 				<!-- load Topbar -->
 				<?php $this->load->view('partials/topbar.php') ?>
 
@@ -20,10 +20,8 @@
 						<h1 class="h3 m-0 text-gray-800"><?= $title ?></h1>
 					</div>
 					<div class="float-right">
-						<?php if ($this->session->login['role'] == 'admin'): ?>
-							
-							<a href="<?= base_url('petugas/tambah') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
-						<?php endif ?>
+						
+						<a href="<?= base_url('pengguna/tambah') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
 					</div>
 				</div>
 				<hr>
@@ -43,7 +41,7 @@
 					</div>
 				<?php endif ?>
 				<div class="card shadow">
-					<div class="card-header"><strong>Daftar Petugas</strong></div>
+					<div class="card-header"><strong>Daftar Pengguna</strong></div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -53,26 +51,22 @@
 										<td>Kode</td>
 										<td>Nama</td>
 										<td>Username</td>
-										<?php if ($this->session->login['role'] == 'admin'): ?>
-											<td>Password</td>
-											<td>Aksi</td>
-										<?php  endif ?>
+										<td>Password</td>
+										<td>Aksi</td>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($all_petugas as $petugas): ?>
+									<?php foreach ($all_pengguna as $pengguna): ?>
 										<tr>
 											<td><?= $no++ ?></td>
-											<td><?= $petugas->kode ?></td>
-											<td><?= $petugas->nama ?></td>
-											<td><?= $petugas->username ?></td>
-											<?php if($this->session->login['role'] == 'admin'): ?>
-												<td><?= $petugas->password ?></td>
-												<td>
-													<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" class="btn btn-success btn-sm"><i class="fa fa-pen"></i></a>
-													<a onclick="return confirm('apakah anda yakin?')" href="<?= base_url('petugas/hapus/' . $petugas->id) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-												</td>	
-											<?php endif ?>
+											<td><?= $pengguna->kode ?></td>
+											<td><?= $pengguna->nama ?></td>
+											<td><?= $pengguna->username ?></td>
+											<td><?= $pengguna->password ?></td>
+											<td>
+												<a href="<?= base_url('pengguna/ubah/' . $pengguna->id) ?>" class="btn btn-success btn-sm"><i class="fa fa-pen"></i></a>
+												<a onclick="return confirm('apakah anda yakin?')" href="<?= base_url('pengguna/hapus/' . $pengguna->id) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+											</td>
 										</tr>
 									<?php endforeach ?>
 								</tbody>

@@ -10,7 +10,7 @@
 		<?php $this->load->view('partials/sidebar.php') ?>
 
 		<div id="content-wrapper" class="d-flex flex-column">
-			<div id="content" data-url="<?= base_url('petugas') ?>">
+			<div id="content" data-url="<?= base_url('pengguna') ?>">
 				<!-- load Topbar -->
 				<?php $this->load->view('partials/topbar.php') ?>
 
@@ -20,7 +20,7 @@
 						<h1 class="h3 m-0 text-gray-800"><?= $title ?></h1>
 					</div>
 					<div class="float-right">
-						<a href="<?= base_url('petugas') ?>" class="btn btn-secondary btn-sm"><i class="fa fa-reply"></i>&nbsp;&nbsp;Kembali</a>
+						<a href="<?= base_url('pengguna') ?>" class="btn btn-secondary btn-sm"><i class="fa fa-reply"></i>&nbsp;&nbsp;Kembali</a>
 					</div>
 				</div>
 				<hr>
@@ -29,25 +29,25 @@
 						<div class="card shadow">
 							<div class="card-header"><strong>Isi Form Dibawah Ini!</strong></div>
 							<div class="card-body">
-								<form action="<?= base_url('petugas/proses_ubah/' . $petugas->id) ?>" id="form-tambah" method="POST">
+								<form action="<?= base_url('pengguna/proses_ubah/' . $pengguna->id) ?>" id="form-tambah" method="POST">
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="kode"><strong>Kode petugas</strong></label>
-											<input type="text" name="kode" placeholder="Masukkan Kode petugas" autocomplete="off"  class="form-control" required value="<?= $petugas->kode ?>" maxlength="8" readonly>
+											<label for="kode"><strong>Kode Pengguna</strong></label>
+											<input type="text" name="kode" placeholder="Masukkan Kode Pengguna" autocomplete="off"  class="form-control" required value="<?= $pengguna->kode ?>" maxlength="8" readonly>
 										</div>
 										<div class="form-group col-md-6">
-											<label for="nama"><strong>Nama petugas</strong></label>
-											<input type="text" name="nama" placeholder="Masukkan Nama petugas" autocomplete="off"  class="form-control" required value="<?= $petugas->nama ?>">
+											<label for="nama"><strong>Nama Pengguna</strong></label>
+											<input type="text" name="nama" placeholder="Masukkan Nama Pengguna" autocomplete="off"  class="form-control" required value="<?= $pengguna->nama ?>">
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
 											<label for="username"><strong>Username</strong></label>
-											<input type="text" name="username" placeholder="Masukkan Username" autocomplete="off"  class="form-control" required value="<?= $petugas->username ?>" readonly>
+											<input type="text" name="username" placeholder="Masukkan Username" autocomplete="off"  class="form-control" required value="<?= $pengguna->username ?>">
 										</div>
 										<div class="form-group col-md-6">
 											<label for="password"><strong>Password</strong></label>
-											<input type="text" name="password" placeholder="Masukkan Password" autocomplete="off"  class="form-control" required value="<?= $petugas->password ?>">
+											<input type="text" name="password" placeholder="Masukkan Password" autocomplete="off"  class="form-control" required value="<?= $pengguna->password ?>">
 										</div>
 									</div>
 									<hr>
