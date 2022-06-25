@@ -10,7 +10,7 @@
 		<?php $this->load->view('partials/sidebar.php') ?>
 
 		<div id="content-wrapper" class="d-flex flex-column">
-			<div id="content" data-url="<?= base_url('supplier') ?>">
+			<div id="content" data-url="<?= base_url('petugas') ?>">
 				<!-- load Topbar -->
 				<?php $this->load->view('partials/topbar.php') ?>
 
@@ -22,7 +22,7 @@
 					<div class="float-right">
 						<?php if ($this->session->login['role'] == 'admin'): ?>
 							
-							<a href="<?= base_url('supplier/tambah') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
+							<a href="<?= base_url('petugas/tambah') ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</a>
 						<?php endif ?>
 					</div>
 				</div>
@@ -43,40 +43,38 @@
 					</div>
 				<?php endif ?>
 				<div class="card shadow">
-					<div class="card-header"><strong>Daftar Supplier</strong></div>
+					<div class="card-header"><strong>Daftar Petugas</strong></div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
 										<td>No</td>
-										<td>Kode Supplier</td>
-										<td>Nama Supplier</td>
-										<td>Telepon</td>
-										<td>Email</td>
-										<td>Alamat</td>
+										<td>Kode</td>
+										<td>Nama</td>
+										<td>Username</td>
 										<?php if ($this->session->login['role'] == 'admin'): ?>
+											<td>Password</td>
 											<td>Aksi</td>
-										<?php endif ?>
+										<?php  endif ?>
 									</tr>
 								</thead>
 								<tbody>
-								<?php foreach ($all_supplier as $supplier): ?>
-									<tr>
-										<td><?= $no++ ?></td>
-										<td><?= $supplier->kode ?></td>
-										<td><?= $supplier->nama ?></td>
-										<td><?= $supplier->telepon ?></td>
-										<td><?= $supplier->email ?></td>
-										<td><?= $supplier->alamat ?></td>
-										<?php if ($this->session->login['role'] == 'admin'): ?>
-										<td>
-											<a href="<?= base_url('supplier/ubah/' . $supplier->kode) ?>" class="btn btn-success btn-sm"><i class="fa fa-pen"></i></a>
-											<a onclick="return confirm('apakah anda yakin?')" href="<?= base_url('supplier/hapus/' . $supplier->kode) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-										</td>
-										<?php endif ?>
-									</tr>	
-								<?php endforeach ?>
+									<?php foreach ($all_petugas as $petugas): ?>
+										<tr>
+											<td><?= $no++ ?></td>
+											<td><?= $petugas->kode ?></td>
+											<td><?= $petugas->nama ?></td>
+											<td><?= $petugas->username ?></td>
+											<?php if($this->session->login['role'] == 'admin'): ?>
+												<td><?= $petugas->password ?></td>
+												<td>
+													<a href="<?= base_url('petugas/ubah/' . $petugas->id) ?>" class="btn btn-success btn-sm"><i class="fa fa-pen"></i></a>
+													<a onclick="return confirm('apakah anda yakin?')" href="<?= base_url('petugas/hapus/' . $petugas->id) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+												</td>	
+											<?php endif ?>
+										</tr>
+									<?php endforeach ?>
 								</tbody>
 							</table>
 						</div>
